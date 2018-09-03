@@ -1,0 +1,33 @@
+body {
+    font: 1em Georgia, "Times New Roman", Times, serif;
+    color: #000000;
+    margin:auto;
+    max-width: 640px;
+    font-family: 'Lora', serif;
+    margin-top: 20px;
+    background-color: #b8c3b9;
+    margin-bottom: 40px;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: left;
+    color: #000;
+    font-family: 'Lora', serif;
+}
+h1 { font-size: 250%; }
+h2 { font-size: 175%; }
+h3 { font-size: 135%; }
+h4 { font-size: 100%; font-variant: small-caps; }
+h5 { font-size: 100%; }
+h6 { font-size: 90%; font-style: italic; }
+
+.thumbnail {width: 180px; margin-right:10px;}
+
+a:link, a:visited {
+	    color: #7272a7;
+	    font-weight: bold;
+	    text-decoration: none; }
+#content a:link:after, #content a:visited:after {
+			   content: " (" attr(href) ") ";
+		       }
+footer { margin-top: 40px; }
