@@ -72,6 +72,14 @@ def get_place_img(img_name, place_name):
 
 def get_head():
     return "<head>\n\
+    <!-- Global site tag (gtag.js) - Google Analytics -->\n\
+    <script async src='https://www.googletagmanager.com/gtag/js?id=UA-125169686-1'></script>\n\
+    <script>\n\
+    window.dataLayer = window.dataLayer || [];\n\
+    function gtag(){dataLayer.push(arguments);}\n\
+    gtag('js', new Date());\n\
+    gtag('config', 'UA-125169686-1');\n\
+    </script>\n\
     <title>" + SITE_TITLE + "</title>\n\
     </head>\n"
 
