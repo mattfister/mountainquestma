@@ -7,7 +7,7 @@ Each properties file in the input folder is parsed to generate the html files in
 
 ### Visit the site
 
-[https://mattfister.github.io/mountainquestma](Mountain Quest MA)
+https://mattfister.github.io/mountainquestma
 
 ### Requirements
 
