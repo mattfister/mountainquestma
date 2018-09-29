@@ -16,6 +16,15 @@ def gen_thumbs():
         img = img.resize((base_width, h_size), Image.ANTIALIAS)
         img.save('../' + THUMBNAIL_PATH + '/' + path)
 
+def gen_thumbs_2():
+    base_height = 300
+    for path in os.listdir('../' + IMAGE_PATH):
+        img = Image.open('../' + IMAGE_PATH + '/'+path)
+        h_percent = (base_height/float(img.size[1]))
+        w_size = int((float(img.size[0])*float(h_percent)))
+        img = img.resize((w_size, base_height), Image.ANTIALIAS)
+        img.save('../' + THUMBNAIL_PATH + '/' + path)
+
 
 def read_properties_file(path):
     props = {}
@@ -268,7 +277,7 @@ def write_city(city_name, all_location_props):
         write_line(f, close_tag('body'))
 
 if __name__ == '__main__':
-    gen_thumbs()
+    gen_thumbs_2()
     all_props = []
     name_to_images = {}
     for name in os.listdir("../input"):
