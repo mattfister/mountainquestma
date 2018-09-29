@@ -120,7 +120,7 @@ def write_index(all_props, name_to_images):
         # Site title
         write_line(f, get_tag('h1', get_link('./', SITE_TITLE)))
 
-        write_line(f, get_tag('p', 'Amy and Matt are going to hike every mountain in Massachusetts. This is where we are tracking our progress.'))
+        write_line(f, get_tag('p', 'Amy and Matt are going to hike every mountain and reach every peak in Massachusetts. This is where we are tracking our progress.'))
 
 
 
