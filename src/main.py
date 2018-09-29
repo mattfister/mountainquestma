@@ -204,6 +204,12 @@ def write_page(f_name, props, images):
         if props.get('date'):
             write_line(f, get_tag('p', "Date Hiked: " + props.get('date')[0]))
 
+        if props.get('description'):
+            write_line(f, get_tag('h3', "Description"))
+            for paragraph in props.get('description'):
+                write_line(f, get_tag('p', paragraph))
+
+
         # Images
         if len(images) > 0:
             write_line(f, get_tag('h3', 'Images'))
