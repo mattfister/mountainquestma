@@ -142,7 +142,7 @@ def write_index(all_props, name_to_images):
             else:
                 counties_to_props_list[county].append(props)
 
-        write_line(f, get_tag('h2', "Mountains We Have Hiked"))
+        write_line(f, get_tag('h2', "Peaks We Have Hiked"))
 
         write_line(f, open_tag('ul'))
         for county, props_list in sorted(counties_to_props_list.items()):
@@ -156,7 +156,58 @@ def write_index(all_props, name_to_images):
             write_line(f, close_tag('ul'))
         write_line(f, close_tag('ul'))
 
-        write_line(f, get_tag('h2', "Remaining Mountains"))
+        name_image_pairs = []
+        for name, images in name_to_images.items():
+            for image in images:
+                name_image_pairs.append([name, image])
+
+        write_line(f, '<div id="random_images" style="text-align: center;"></div>')
+        write_line(f, '<script>')
+        write_line(f, 'function getRandom(arr, n) { \
+        var result = new Array(n), \
+             len = arr.length, \
+           taken = new Array(len); \
+        if (n > len) \
+            throw new RangeError("getRandom: more elements taken than available"); \
+        while (n--) { \
+            var x = Math.floor(Math.random() * len); \
+            result[n] = arr[x in taken ? taken[x] : x]; \
+            taken[x] = --len in taken ? taken[len] : len; \
+        } \
+        return result; \
+        }')
+        write_line(f, 'var name_image_pairs=getRandom('+str(name_image_pairs)+', 7);')
+        write_line(f, 'var element=document.getElementById("random_images");')
+        write_line(f, 'for (var i = 0; i < name_image_pairs.length; i++) {')
+        write_line(f, 'var link = document.createElement("a");')
+        write_line(f, 'var href = "m/"+name_image_pairs[i][0]+".html";')
+        write_line(f, 'link.href = href')
+        write_line(f, 'var image = document.createElement("img");')
+        write_line(f, 'image.src = "thumbs/"+name_image_pairs[i][1];')
+        write_line(f, 'image.classList.add("thumbnail")')
+        write_line(f, 'link.appendChild(image);')
+        write_line(f, 'element.appendChild(link);')
+        write_line(f, '}')
+        # write_line(f, 'var featured_haunting=featured_hauntings[Math.floor(Math.random()*featured_hauntings.length)];')
+        # write_line(f, 'var link=document.createElement("a");')
+        # write_line(f, 'link.href=featured_haunting.url;')
+        # write_line(f, 'var title=document.createElement("h3");')
+        # write_line(f, 'var node=document.createTextNode(featured_haunting.title + ", " + featured_haunting.place);')
+        # write_line(f, 'link.appendChild(node);')
+        # write_line(f, 'title.appendChild(link);')
+        # write_line(f, 'var element=document.getElementById("featured_haunting");')
+        # write_line(f, 'element.appendChild(title);')
+        # write_line(f, 'var image_link=document.createElement("a");')
+        # write_line(f, 'image_link.href=featured_haunting.url;')
+        # write_line(f, 'var image_src="tgimg/"+featured_haunting.images[Math.floor(Math.random()*featured_haunting.images.length)];')
+        # write_line(f, 'var image = document.createElement("img");')
+        # write_line(f, 'image.src = image_src;')
+        # write_line(f, 'image.height = "150";')
+        # write_line(f, 'image_link.appendChild(image);')
+        # write_line(f, 'element.appendChild(image_link);')
+        write_line(f, '</script>')
+
+        write_line(f, get_tag('h2', "Remaining Peaks"))
 
         write_line(f, open_tag('ul'))
         for county, props_list in sorted(counties_to_props_list.items()):
@@ -170,7 +221,7 @@ def write_index(all_props, name_to_images):
             write_line(f, close_tag('ul'))
         write_line(f, close_tag('ul'))
 
-        write_line(f, get_tag('h2', 'All Mountains'))
+        write_line(f, get_tag('h2', 'All Peaks'))
 
         write_line(f, open_tag('ul'))
         for county, props_list in sorted(counties_to_props_list.items()):

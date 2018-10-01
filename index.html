@@ -21,7 +21,7 @@
 Amy and Matt are going to hike every mountain and reach every peak in Massachusetts. This is where we are tracking our progress.</p>
 
 <h2>
-Mountains We Have Hiked</h2>
+Peaks We Have Hiked</h2>
 
 <ul>
 
@@ -92,8 +92,24 @@ Norfolk, MA</li>
 
 </ul>
 
+<div id="random_images" style="text-align: center;"></div>
+<script>
+function getRandom(arr, n) {         var result = new Array(n),              len = arr.length,            taken = new Array(len);         if (n > len)             throw new RangeError("getRandom: more elements taken than available");         while (n--) {             var x = Math.floor(Math.random() * len);             result[n] = arr[x in taken ? taken[x] : x];             taken[x] = --len in taken ? taken[len] : len;         }         return result;         }
+var name_image_pairs=getRandom([['berkshire-monument-mountain', 'berkshire-monument-mountain-1.jpg'], ['hampden-mt-tom', 'hampden-mt-tom-1.jpg'], ['hampden-mt-tom', 'hampden-mt-tom-2.jpg'], ['hampden-mt-tom', 'hampden-mt-tom-3.jpg'], ['middlesex-blood-hill', 'middlesex-blood-hill-1.JPG'], ['middlesex-blood-hill', 'middlesex-blood-hill-2.JPG'], ['middlesex-blood-hill', 'middlesex-blood-hill-3.JPG'], ['middlesex-blood-hill', 'middlesex-blood-hill-4.JPG'], ['middlesex-gibbs-mountain', 'middlesex-gibbs-mountain-1.jpg'], ['middlesex-gibbs-mountain', 'middlesex-gibbs-mountain-2.jpg']], 7);
+var element=document.getElementById("random_images");
+for (var i = 0; i < name_image_pairs.length; i++) {
+var link = document.createElement("a");
+var href = "m/"+name_image_pairs[i][0]+".html";
+link.href = href
+var image = document.createElement("img");
+image.src = "thumbs/"+name_image_pairs[i][1];
+image.classList.add("thumbnail")
+link.appendChild(image);
+element.appendChild(link);
+}
+</script>
 <h2>
-Remaining Mountains</h2>
+Remaining Peaks</h2>
 
 <ul>
 
@@ -453,7 +469,7 @@ Norfolk, MA</li>
 </ul>
 
 <h2>
-All Mountains</h2>
+All Peaks</h2>
 
 <ul>
 
